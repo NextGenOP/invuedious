@@ -84,7 +84,7 @@ export default {
 		}
 	},
 	methods: {
-	  onChange: function(e) {
+		onChange: function(e) {
 		var id = e.target.value;
 		var name = e.target.options[e.target.options.selectedIndex].text;
 		console.log('id ',id );
@@ -92,7 +92,7 @@ export default {
 		},
 		save() {
 		this.$emit("save", [this.instance, this.theme])
-	},
+		},
 	},
 }
 </script>
