@@ -30,8 +30,6 @@
 								{{ instance }} 
 							</p>
                             <input v-if="instance === 'other'"
-								:value="https://invidious.kavin.rocks"
-								@input="a => text = a.target.value"
 								v-model="instance" type="text" 
 								v-on:change="onChangeSite($event)" />
 						</div>
@@ -86,14 +84,14 @@ export default {
 		}
 	},
 	methods: {
-		onChange: function(e){
+		onChange: function(e) {
         var id = e.target.value;
         var name = e.target.options[e.target.options.selectedIndex].text;
         console.log('id ',id );
         console.log('name ',name );
     	},
 		save() {
-			this.$emit("save", [this.instance, this.theme])
+		this.$emit("save", [this.instance, this.theme])
 		},
 	},
 }
