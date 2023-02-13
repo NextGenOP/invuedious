@@ -79,8 +79,7 @@ export default {
 	},
 	created() {
 		this.custominstance = this.$store.state.selected
-		if (this.instance != 'other')
-		else{
+		if (this.instance != 'other'){
 			this.instance = this.$store.state.selected
 		}
 		this.theme = localStorage.getItem("theme")
