@@ -23,7 +23,9 @@
 								>
 									{{ inst[1].type + "://" + inst[0] }}
 								</option>
+                                                                <option value="other">Other</option>
 							</select>
+                                                        <textarea v-if='instance === "other"' name="" id="" cols="30" rows="10"></textarea>
 						</div>
 					</div>
 					<div>
