@@ -15,7 +15,7 @@
 					<div style="margin-bottom: 1.5em">
 						<p class="text-light">Choose instance:</p>
 						<div class="form-group">
-							<select class="form-select" v-model="instance">
+							<select class="form-select" v-model="instance" v-on:change="onChangeSite($event)">
 								<option
 									v-for="(inst, n) in $store.state.apis"
 									:key="n"
@@ -23,10 +23,12 @@
 								>
 									{{ inst[1].type + "://" + inst[0] }}
 								</option>
-                                                                <option value="other">Other</option>
+                                <option value="other">Other</option>
 							</select>
-                                                        <h3> Instance: {{selected.instance}} </h3>
-                                                        <input v-if='instance === "other"' type="text"></input>
+                            <p class="text-light"> Instance: 
+								{{ instance }} 
+							</p>
+                            <input v-if="instance === 'other'" v-model="instance" type="text" v-on:change="onChangeSite($event)"> </input>
 						</div>
 					</div>
 					<div>
@@ -79,6 +81,12 @@ export default {
 		}
 	},
 	methods: {
+		onChange: function(e){
+        var id = e.target.value;
+        var name = e.target.options[e.target.options.selectedIndex].text;
+        console.log('id ',id );
+        console.log('name ',name );
+    	},
 		save() {
 			this.$emit("save", [this.instance, this.theme])
 		},
