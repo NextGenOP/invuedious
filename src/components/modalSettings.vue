@@ -24,12 +24,12 @@
 								>
 									{{ inst[1].type + "://" + inst[0] }}
 								</option>
-                                <option value="other">Other</option>
+								<option value="other">Other</option>
 							</select>
-                            <p class="text-light"> Instance: 
+							<p class="text-light"> Instance: 
 								{{ instance }} 
 							</p>
-                            <input v-if="instance === 'other'"
+							<input v-if="instance === 'other'"
 								v-model="instance" type="text" 
 								v-on:change="onChangeSite($event)" />
 						</div>
@@ -84,15 +84,15 @@ export default {
 		}
 	},
 	methods: {
-		onChange: function(e) {
-        var id = e.target.value;
-        var name = e.target.options[e.target.options.selectedIndex].text;
-        console.log('id ',id );
-        console.log('name ',name );
-    	},
+	  onChange: function(e) {
+		var id = e.target.value;
+		var name = e.target.options[e.target.options.selectedIndex].text;
+		console.log('id ',id );
+		console.log('name ',name );
+		},
 		save() {
 		this.$emit("save", [this.instance, this.theme])
-		},
+	},
 	},
 }
 </script>
