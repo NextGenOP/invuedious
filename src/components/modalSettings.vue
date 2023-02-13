@@ -78,7 +78,9 @@ export default {
 		}
 	},
 	created() {
-		this.custominstance = this.$store.state.selected
+		if (this.custominstance != undefined){
+			this.custominstance = this.$store.state.selected
+		}
 		if (this.instance != 'other'){
 			this.instance = this.$store.state.selected
 		}
@@ -95,6 +97,9 @@ export default {
 		console.log('name ',name );
 		},
 		save() {
+		if (this.instance === 'other'){
+			this.instance = this.custominstance
+		}
 		this.$emit("save", [this.instance, this.custominstance, this.theme])
 		},
 	},
