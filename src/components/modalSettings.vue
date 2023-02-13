@@ -30,7 +30,7 @@
 								{{ instance }} 
 							</p>
 							<input v-if="instance === 'other'"
-								v-model="instance" type="text" 
+								v-model="custominstance" type="text" 
 								v-on:change="onChangeSite($event)" />
 						</div>
 					</div>
@@ -71,12 +71,14 @@ export default {
 	name: "modalSettings",
 	data() {
 		return {
+			custominstance: "",
 			instance: "",
 			first: 0,
 			theme: "",
 		}
 	},
 	created() {
+		this.custominstance = this.$store.state.selected
 		this.instance = this.$store.state.selected
 		this.theme = localStorage.getItem("theme")
 		if (this.theme == undefined) {
@@ -91,7 +93,7 @@ export default {
 		console.log('name ',name );
 		},
 		save() {
-		this.$emit("save", [this.instance, this.theme])
+		this.$emit("save", [this.instance, this.custominstance, this.theme])
 		},
 	},
 }
