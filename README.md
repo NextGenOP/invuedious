@@ -1,4 +1,4 @@
-# Invuedious
+# Invuedious (with custom instance support)
  A basic frontend for invidious that uses the invidious APIs. Demo: https://nextgenop.github.io/invuedious
 
 ## Todo
