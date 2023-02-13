@@ -15,7 +15,8 @@
 					<div style="margin-bottom: 1.5em">
 						<p class="text-light">Choose instance:</p>
 						<div class="form-group">
-							<select class="form-select" v-model="instance" v-on:change="onChangeSite($event)">
+							<select class="form-select" v-model="instance" 
+								v-on:change="onChangeSite($event)">
 								<option
 									v-for="(inst, n) in $store.state.apis"
 									:key="n"
@@ -28,7 +29,11 @@
                             <p class="text-light"> Instance: 
 								{{ instance }} 
 							</p>
-                            <input v-if="instance === 'other'" v-model="instance" type="text" v-on:change="onChangeSite($event)"> </input>
+                            <input v-if="instance === 'other'"
+								:value="https://invidious.kavin.rocks"
+								@input="a => text = a.target.value"
+								v-model="instance" type="text" 
+								v-on:change="onChangeSite($event)" />
 						</div>
 					</div>
 					<div>
