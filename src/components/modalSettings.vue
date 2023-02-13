@@ -25,7 +25,8 @@
 								</option>
                                                                 <option value="other">Other</option>
 							</select>
-                                                        <textarea v-if='instance === "other"' name="" id="" cols="30" rows="10"></textarea>
+                                                        <h3> Instance: {{selected.instance}} </h3>
+                                                        <input v-if='instance === "other"' type="text"></input>
 						</div>
 					</div>
 					<div>
